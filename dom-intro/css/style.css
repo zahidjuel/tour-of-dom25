@@ -1,0 +1,14 @@
+h1{
+    color: blueviolet;
+}
+.text-center{
+    text-align: center;
+}
+
+.text-center li{
+    list-style-type: none;
+}
+
+.lg-font{
+    font-size: 2em;
+}

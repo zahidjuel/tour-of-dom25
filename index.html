@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tour of Dom</title>
+    <!-- connect external css file  -->
+    <link rel="stylesheet" href="styles/style.css">
+    <!-- internal css file -->
+    <style>
+        li {
+            color: yellowgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to my DOM</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis maiores maxime, soluta corrupti
+            consequuntur facere dicta repellat error ut obcaecati, enim non, velit mollitia vero dolores unde molestiae!
+            Autem, odio.</p>
+    </header>
+    <main id="main-container">
+        <section>
+            <h1>My awesome dom de baba !!!!!</h1>
+            <ul>
+                <li>Jalali set</li>
+                <li>Shafayat</li>
+                <li>Bonobasdh</li>
+                <li>Isse Ghuri</li>
+            </ul>
+        </section>
+
+        <section class="fruits-container">
+            <h1 id="fruits-title" class="some-class random-class blue-bg">Fruits i like</h1>
+            <ul>
+                <li>Banana</li>
+                <li>Apple</li>
+                <li>Mango</li>
+            </ul>
+        </section>
+
+        <section id="places-container" class="lg-font">
+            <h1 id="places-title">Places I like to visit</h1>
+            <ul id="places-list">
+                <li class="important-places">Sundorbon</li>
+                <li class="important-places">Bandorbon</li>
+                <li class="important-places">Katabon</li>
+                <li class="other-place">Shalbon</li>
+            </ul>
+        </section>
+    </main>
+    <!-- connect external js file -->
+    <script src="js/dom1.js"></script>
+    <script src="js/append8.js"></script>
+    <script src="js/styleInJs6.js"></script>
+    <!-- internal js file -->
+    <script>
+        console.log("adding js inside the html file");
+        const student = {
+            name: "Zahid Juel",
+            id: 211,
+            study: function (time) {
+                console.log(time, 'study kortese');
+            }
+        }
+        console.log(student.name);
+        student.study(5);
+
+
+        //option:1 getElementsByTagName('li'); // html collection array like object
+        const liCollecttion = document.getElementsByTagName('li');
+        console.log(liCollecttion);
+        for (const li of liCollecttion) {
+            console.log(li.innerText);
+        }
+
+        const allHeading = document.getElementsByTagName('h1');
+        console.log(allHeading);
+        for (const h1 of allHeading) {
+            console.log(h1.innerText);
+        }
+
+        // option:2 getElementById('fruits-title'); // will return
+        const placesTitle = document.getElementById('places-title');
+        console.log(placesTitle.innerText);
+        placesTitle.innerText = 'My Tour List Changed by JS';
+        console.log(placesTitle);
+
+        // ooption:3 getElementsByClassName('important-places'); // html collection array like object
+        const places = document.getElementsByClassName('important-places');
+        console.log(places);
+        for (const place of places) {
+            console.log(place.innerText);
+        }
+
+        //option 4: querySelectorAll('.fruits-container li'); // nodeList Array like object // use for each loop...
+        const someLi = document.querySelectorAll('.fruits-container li');
+        console.log(someLi);
+        for (const li of someLi) {
+            console.log(li.innerText);
+        }
+
+        // option 5: querySelector('.fruits-container li'); // will return the first one.
+        const firstLi = document.querySelector('.fruits-container li');
+        firstLi.innerText = 'Watermelon';
+        console.log(firstLi.innerText);
+    </script>
+    <!-- 
+        1. difference between htmlCollection & nodeList 
+        
+        const title = document.getElementById('fruits-title');
+
+        title.getAttribute('id');
+        title.getAttribute('class');
+        title.classList
+        title.classList.remove(' ');
+        title.classList.add(' ');
+        title.setAttribute('title', 'tooltip set by JS');
+
+        document.getElementsByClassName('fruits-container')[0]
+        document.getElementsByClassName('fruits-container')[0].innerHTML
+        document.getElementsByClassName('fruits-container')[0].innerHTML = `<h1>Wow dom is changing <h2>`
+        document.getElementsByClassName('fruits-container')[0].innerText
+        
+        DOM node:
+        const placesContainer = document.getElementById('places-Container');
+
+        placesConatainer.firstChild
+        placesConatainer.lastChild
+        placesConatainer.childNodes
+        placesContainer.childNodes[0];
+        placesContainer.childNodes[1];
+        placesContainer.childNodes[3].childNodes
+
+        placesContainer.childNodes[3].childNodes[0].nextSibling
+        placesContainer.childNodes[3].childNodes[0].previousSibling
+        placesContainer.childNodes[3].childNodes[0].nextSibling.nextSibling.nextSibling.nextElementSibling
+        placesContainer.childNodes[3].childNodes[0].nextSibling.nextSibling.nextSibling.previousElementSibling
+        
+        document.createElement('p');
+        document.createElement('div');
+        
+        parentElement.appendChild(createElement);
+        placesUL.parentNode.parentNode.parentNode
+     -->
+</body>
+
+</html>
